@@ -23,7 +23,7 @@ body {
     column-gap: 2em;
     row-gap: 1.5em;
 
-    width: 100%;
+    width: 100vw;
     margin: 2em;
 }
 
@@ -51,7 +51,8 @@ h1 {
 }
 
 table {
-    width: 100%;
+    width: 80%;
+    margin: auto;
     background: #1173cb;
     border-radius: 8px;
     border-collapse: collapse;
