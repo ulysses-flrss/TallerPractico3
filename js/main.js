@@ -4,8 +4,10 @@ const btn_create = document.querySelector('.create'),
     paginationUl = document.querySelector('.pagination ul'),
     // Input para el nombre
     input_nombre = document.querySelector('.nombre'),
-    // Input para la edad
-    input_edad = document.querySelector('.edad'),
+    // Input para la dui
+    input_dui = document.querySelector('.dui'),
+    // Input para la NIT
+    input_nit = document.querySelector('.nit'),
     // Obtener la informacion almacenada con localStorage
     getData = localStorage.getItem('data'),
     // Contenedor para mostrar mensajes
@@ -90,22 +92,18 @@ let lastId = (numArr.length > 0) ? Math.max.apply(null, numArr) : 0;
 btn_create.addEventListener('click', function () {
     // obtener los valores en los input y remover los espacios en blanco
     const nombre = input_nombre.value.trim();
-    const edad = input_edad.value.trim();
-    const nit = input_nit.value.trim();
     const dui = input_dui.value.trim();
-
-
+    const nit = input_nit.value.trim();
     // si el nombre no esta vacio y edad es un numero:
 
-    if (nombre != '' && !isNaN(edad) && edad != ""&&nit!="" && dui !="") {
+    if (nombre != '' && !isNaN(dui) && dui != "") {
         lastId++;
         // informacion requerida para la tabla (id,nombre,edad)
         const data = {
             id: lastId,
             nombre: nombre,
-            edad: edad,
-            nit: nit,
-            dui:dui
+            dui: dui,
+            nit: nit
         }
         // añadir el elemento creado a el array [elements]
         elements.push(data);
@@ -117,9 +115,9 @@ btn_create.addEventListener('click', function () {
         // actionsTable();
         // "limpiar" los input para dejarlos en blanco
         input_nombre.value = '';
-        input_edad.value = '';
+        input_dui.value = '';
         // añadir al elemento en el dom (.container-popup-messages)  un nuevo elemento con innerHTML
-        containerPopupMessages.innerHTML = message('Creacion completa', `Datos creados Nombre: ${nombre} - Edad: ${edad}- nit: ${nit} - dui: ${dui}`, 'creation');
+        containerPopupMessages.innerHTML = message('Creacion completa', `Datos creados Nombre: ${nombre} - dui: ${dui} - nit: ${nit}`, 'creation');
         // eliminar el elemento en el dom previamente creado con un intervalo de tiempo
         deleteMessage(1000);
     } else {
@@ -147,14 +145,13 @@ function actionsTable() {
             // tr igual al elemento seleccionado
             let tr = this.parentElement.parentElement;
             let name = tr.querySelector('.itemName').textContent;
-            let age = tr.querySelector('.itemAge').textContent;
-            let nitt = tr.querySelector('.itemnitt').textContent;
-            let duii = tr.querySelector('.itemduii').textContent;
+            let age = tr.querySelector('.itemdui').textContent;
+            let nitt = tr.querySelector('.itemnit').textContent;
             //problema a solucionar
             let ax = elements.filter(function(item){
                 if(item.id == id){
-                    if(item.nombre != name || item.edad != age || item.nit != nitt || item.dui !=duii){   
-                      console.log(item.nombre,item.edad,item.nit,item,dui)
+                    if(item.nombre != name || item.dui != age || item.nit != nitt){   
+                      console.log(item.nombre,item.dui,item.nit)
                      return true;
                     }
                 }
@@ -178,9 +175,8 @@ function actionsTable() {
                 const data = {
                     id: id,
                     nombre: name,
-                    edad: age,
-                    nit: nitt,
-                    dui: duii
+                    dui: age,
+                    nit: nitt
                 };
               
                 if(!isNaN(age)){
@@ -228,8 +224,6 @@ function actionsTable() {
 }
 // muestra los elementos que ya esten almacenados con localStorage
 displayElements();
-
-
 // funcion para mostrar los elementos alamacenados con localStorage y una paginacion
 function displayElements() {
     // informacion recibida de localStorage con el nombre 'data'
@@ -363,7 +357,10 @@ function displayElements() {
                     <div contenteditable="true" class="itemName">${item.nombre}</div>
                     </td>
                     <td>
-                    <div contenteditable="true" class="itemAge">${item.edad}</div>
+                    <div contenteditable="true" class="itemAge">${item.dui}</div>
+                    </td>
+                    <td>
+                    <div contenteditable="true" class="itemnit">${item.nit}</div>
                     </td>
                     <td>
                     <button class="btn update">Update <input type="hidden" value="${item.id}" class="itemID"></button>
@@ -378,3 +375,4 @@ function displayElements() {
     }
 
 }
+
