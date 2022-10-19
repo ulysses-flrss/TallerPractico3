@@ -32,10 +32,6 @@ body {
 }
 
 
-.btn-container {
-    
-}
-
 .btn-container a {
     background-color: #1173cb;
     box-shadow: 2px 2px 1px #0a3c68;
@@ -48,7 +44,6 @@ body {
     color: #FFF;
     font-size: 1.1em;
     font-family: 'Poppins', sans-serif;
-    transform: rotate(-25deg);
     transition: 500ms all;
     text-decoration: none;
 }

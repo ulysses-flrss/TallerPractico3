@@ -5,8 +5,121 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../css/almacenar-carro-style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+
 </head>
 <body>
+    <body>
+        <h1>Información del dueño</h1>
+        <div id = "formulario">
+            <div>
+                <label>Nombre</label>
+                <input type="text" class="nombre" >
+            </div>
+
+            <div>
+                <label>DUI</label>/
+                <input type="number" class="dui"  id="duiV">
+            </div>
+
+            <div>
+                <label for="">NIT</label>
+                <input type="numbre" class="nit" >
+            </div>
+        </div>
+            <h1>Información del automovil</h1>
+
+        <div id="formulario">
+            <div>
+                <label for="">Marca</label>
+                <select name="" id="marca-select">
+                    <option value="">Seleccione una marca</option>
+                    <option value="ford">Ford</option>
+                    <option value="toyota">Toyota</option>
+                    <option value="nissan">Nissan</option>
+                    <option value="chevrolet">Chevrolet</option>
+                    <option value="pontiac">Pontiac</option>
+                    <option value="honda">Honda</option>
+                    <option value="hyundai">Hyundai</option>
+                    <option value="mercedez">Mercedez</option>
+                    <option value="tesla">Tesla</option>
+                    <option value="dodge">Dodge</option>
+                    <option value="jeep">Jeep</option>
+                    <option value="cadillac">Cadillac</option>
+                    <option value="bmw">BMW</option>
+                    <option value="audi">Audi</option>
+                    <option value="volkswagen">Volkswagen</option>
+                    <option value="volvo">Volvo</option>
+                    <option value="peugeot">Peugeot</option>
+                    <option value="mitsubishi">Mitsubishi</option>
+                    <option value="mazda">Mazda</option>
+                </select>
+            </div>
+            
+            <div>
+                <label for="">Modelo</label>
+                <select name="" id="modelo-select">
+                    <option value="">Seleccione un modelo</option>
+                </select>
+            </div>
     
+            <div>
+                <label for="">Año</label>
+                <input type="number" name="" id="anio-modelo" min="1990" max="2023" required>
+            </div>
+
+            <div>
+                <label for="">Color</label>
+                <input type="text" name="" id="color" required>
+            </div>
+    
+
+            <div>
+                <label for="">Placa</label>
+                <input type="text" name="" id="placa" required>
+            </div>
+
+            <div>
+                <label for="">Fallas</label>
+                <input type="text" name="" id="">
+            </div>
+        </div>
+    
+
+            <button class="btn create" id="btn-create"  value="enviar">Crear</button>
+
+        <div class="container">
+            <h1 class="title-proyect">CRUD de taller mecanico</h1>
+            <div class="create-element">      
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>DUI</th>
+                        <th>NIT</th>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Año</th>
+                        <th>Color</th>
+                        <th>Placa</th>
+                        <th>Fallas</th>
+                        <th>Accion</th>
+                    </tr>
+                </thead>
+                <tbody class="table-content">
+                </tbody>
+            </table>
+            <div class="pagination">
+                <ul></ul>
+            </div>
+            <div class="container-popup-messages">
+                
+            </div>
+        </div>
+        <script src="../js/main.js"></script>
 </body>
 </html>

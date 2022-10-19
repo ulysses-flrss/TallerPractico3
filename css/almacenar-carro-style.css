@@ -1,0 +1,79 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Quicksand:wght@700&family=Roboto+Mono&family=Roboto:wght@500&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #FFF;
+ }
+
+body {
+    background-color: #003f7a !important;
+}
+
+#formulario {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 33% 33% 33%;
+    width: 100%;
+    margin: auto;
+}
+
+#formulario input, select, option, textarea{
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    padding: 1em;
+    margin: 1.5em;
+
+
+    background-color: #1173cb;;
+
+}
+
+h1 {
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    background: #1173cb;
+    border-radius: 8px;
+    border-collapse: collapse;
+}
+
+th {
+    border: 2px 2px solid #003f7a;
+    padding: 1.25em;
+    border-radius: 8px 8px 0px 0px;
+}
+
+tr {
+    border: 2px 2px solid #003f7a;
+    width: fit-content;
+    padding: 1.5em;
+}
+
+td {
+    border: 2px 2px solid #003f7a;
+    width: fit-content;
+    padding: 1.5em;
+}
+
+button .btn-create{
+    background-color: #1173cb !important;
+    box-shadow: 2px 2px 1px #0a3c68;
+    outline: none;
+    border: none;
+    padding: 1em;
+    margin: 0em 2em;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #FFF;
+    font-size: 1.1em;
+    font-family: 'Poppins', sans-serif;
+    transition: 500ms all;
+    text-decoration: none;
+}
