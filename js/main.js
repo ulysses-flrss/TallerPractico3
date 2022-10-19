@@ -1,22 +1,3 @@
-var duiVa = function(str){
-    var regex = /(^\d{8})-(\d$)/,
-        parts = str.match(regex);   
-     if(parts !== null){
-       var digits = parts[1],
-           dig_ve = parseInt(parts[2], 10),
-           sum    = 0;
-       for(var i = 0, l = digits.length; i < l; i++){
-         var d = parseInt(digits[i], 10);
-         sum += ( 9 - i ) * d;
-       }
-       return dig_ve === (10 - ( sum % 10 ))%10;
-     }else{
-       return false;
-     }
- };
-
-
-
 
 
 
@@ -119,7 +100,7 @@ btn_create.addEventListener('click', function () {
     const nit = input_nit.value.trim();
     // si el nombre no esta vacio y edad es un numero:
 
-    if (nombre != '' && !isNaN(dui) && dui != "" && !isNaN(nit) && nit != "") {
+    if (nombre != '' &&  /^\d{8}-\d$/.test(dui) && !isNaN(nit) && nit != "") {
         lastId++;
         // informacion requerida para la tabla (id,nombre,edad)
         const data = {
@@ -149,6 +130,14 @@ btn_create.addEventListener('click', function () {
         containerPopupMessages.innerHTML = message('Completa los campos', 'Hay campos sin rellenar, Asegurese de rellenar correctamente los campos', 'error');
         deleteMessage(1000);
     }
+
+    /*if (/^\d{8}-\d$/.test(dui)){
+
+    }else{
+        containerPopupMessages.innerHTML = message('[ERROR] no tiene el formato necesario');
+       
+    }*/
+    
 });
 //llamar a actionsTable() 
 actionsTable();
