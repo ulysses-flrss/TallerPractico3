@@ -1,3 +1,26 @@
+var duiVa = function(str){
+    var regex = /(^\d{8})-(\d$)/,
+        parts = str.match(regex);   
+     if(parts !== null){
+       var digits = parts[1],
+           dig_ve = parseInt(parts[2], 10),
+           sum    = 0;
+       for(var i = 0, l = digits.length; i < l; i++){
+         var d = parseInt(digits[i], 10);
+         sum += ( 9 - i ) * d;
+       }
+       return dig_ve === (10 - ( sum % 10 ))%10;
+     }else{
+       return false;
+     }
+ };
+
+
+
+
+
+
+
 // Boton para crear elemento en la tabla
 const btn_create = document.querySelector('.create'),
     // Contenedor (Ul) para la paginacion
@@ -96,7 +119,7 @@ btn_create.addEventListener('click', function () {
     const nit = input_nit.value.trim();
     // si el nombre no esta vacio y edad es un numero:
 
-    if (nombre != '' && !isNaN(dui) && dui != "") {
+    if (nombre != '' && !isNaN(dui) && dui != "" && !isNaN(nit) && nit != "") {
         lastId++;
         // informacion requerida para la tabla (id,nombre,edad)
         const data = {
@@ -116,6 +139,7 @@ btn_create.addEventListener('click', function () {
         // "limpiar" los input para dejarlos en blanco
         input_nombre.value = '';
         input_dui.value = '';
+        input_nit.value = '';
         // añadir al elemento en el dom (.container-popup-messages)  un nuevo elemento con innerHTML
         containerPopupMessages.innerHTML = message('Creacion completa', `Datos creados Nombre: ${nombre} - dui: ${dui} - nit: ${nit}`, 'creation');
         // eliminar el elemento en el dom previamente creado con un intervalo de tiempo
@@ -363,8 +387,7 @@ function displayElements() {
                     <div contenteditable="true" class="itemnit">${item.nit}</div>
                     </td>
                     <td>
-                    <button class="btn update">Update <input type="hidden" value="${item.id}" class="itemID"></button>
-                    <button class="btn delete">Delete <input type="hidden" value="${item.id}" class="itemID"></button>
+                    <button class="btn delete">Borrar <input type="hidden" value="${item.id}" class="itemID"></button>
                     </td>
                     </tr>
                     `
